@@ -46,6 +46,7 @@ func encodeBalanceOfParam(address string) (string, error) {
 	return common.Bytes2Hex(data[4:]), nil
 }
 
+// https://developers.tron.network/reference/triggerconstantcontract
 func main() {
 	address := "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
 	encoded, err := encodeBalanceOfParam(address)
