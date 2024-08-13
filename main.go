@@ -16,9 +16,13 @@ func encodeBalanceOfParam(address string) (string, error) {
 		return "", fmt.Errorf("failed to convert Base58 address to hex: %v", err)
 	}
 
+	testTronAddress := tronaddress.HexToAddress("0x41a614f803b6fd780986a42c78ec9c7f77e6ded13c")
+	fmt.Println("Test Tron address:", testTronAddress.String())
+
 	// Remove the "41" prefix if present
 	address = tronAddress.Hex()
-	address = strings.TrimPrefix(address, "0x41")
+	// address = strings.TrimPrefix(address, "0x41")
+	fmt.Println("Hex address:", address)
 
 	// Convert the address to the appropriate type
 	ethAddress := common.HexToAddress(address)
@@ -43,11 +47,11 @@ func encodeBalanceOfParam(address string) (string, error) {
 }
 
 func main() {
-	address := "TZ4UXDV5ZhNW7fb2AMSbgfAEZ7hWsnYS2g"
+	address := "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
 	encoded, err := encodeBalanceOfParam(address)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	fmt.Println("Encoded balanceOf parameter:", encoded)
+	fmt.Println("Encoded balanceOf parameter:", encoded)	// 000000000000000000000000a614f803b6fd780986a42c78ec9c7f77e6ded13c
 }
